@@ -26,7 +26,8 @@ exports.initErrorHandlers = function(req, res, next) {
     res.status(500).render('errors/500', {
       err: err,
       errorTitle: title,
-      errorMsg: message
+      errorMsg: message,
+      title: '500 | Fairy',
     });
   }
 

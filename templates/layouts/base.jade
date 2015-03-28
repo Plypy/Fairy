@@ -1,0 +1,34 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    title= title || 'Fairy'
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+    link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles/site.min.css")
+
+    block css
+    block head
+  body
+
+    div.container
+      div.jumbotron
+        h1#header.text-center Fairy
+
+      #body
+
+      block intro
+
+      +flash-messages(messages)
+
+      block content
+
+      #footer Built by Ply_py.
+
+  script(src='//code.jquery.com/jquery-2.1.3.min.js')
+
+  block js

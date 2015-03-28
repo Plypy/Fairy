@@ -5,3 +5,6 @@
 
 # Dependencies
 node_modules/
+
+# Auto-generated Files
+*.min.css

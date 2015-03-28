@@ -1,0 +1,23 @@
+{
+  "name": "Fairy",
+  "version": "0.0.0",
+  "description": "Fairy's Bulletin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Plypy/Fairy.git"
+  },
+  "dependencies": {
+    "keystone": "latest",
+    "lodash": "latest"
+  },
+  "author": "Ply_py",
+  "license": "WTFPLv3",
+  "bugs": {
+    "url": "https://github.com/Plypy/Fairy/issues"
+  },
+  "homepage": "https://github.com/Plypy/Fairy"
+}

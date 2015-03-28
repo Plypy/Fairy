@@ -1,0 +1,12 @@
+mixin task-bar(task)
+  li.list-group-item
+    div.input-group
+      span.input-group-addon
+        input(type="checkbox", aria-label="...")
+      span.form-control(aria-label="...")
+        a.text(href='/tasks/' + task.id) task.name
+        span.glyphicon.glyphicon-file(aira-hidden="true", style="float:left")
+    div.progress.progress-right
+      div.progress-bar(role="progressbar", aria-valuenow="70",
+      aria-valuemin="0", aria-valuemax="100" style="width:70%")
+

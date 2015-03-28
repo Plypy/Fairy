@@ -14,7 +14,8 @@ keystone.set('404', function(req, res, next) {
 
 // Handle other errors
 keystone.set('500', function(err, req, res, next) {
-  var title, message;
+  var title;
+  var message;
   if (err instanceof Error) {
     message = err.message;
     err = err.stack;

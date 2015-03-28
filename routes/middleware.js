@@ -34,7 +34,8 @@ exports.initErrorHandlers = function(req, res, next) {
   res.notfound = function(title, message) {
     res.status(404).render('errors/404', {
       errorTitle: title,
-      errorMsg: message
+      errorMsg: message,
+      title: '404 | Fairy',
     });
   }
 

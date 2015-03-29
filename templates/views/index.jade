@@ -2,4 +2,14 @@ extends ../layouts/base
 include ../mixins/tasks
 
 block content
-  +task-bar({name: 'Fairy', id: '0101'})
+  div.input-group#new-task
+    input.form-control(type="text", placeholder="Add new task")
+    span.input-group-btn#calendar-toggle
+      button.btn.btn-default(type="button")
+        span.fa.fa-calendar
+    span.input-group-btn
+      button.btn.btn-default(type="button") Add
+
+  div.list-group
+    -for (var i in tasks)
+      +task-bar(tasks[i])

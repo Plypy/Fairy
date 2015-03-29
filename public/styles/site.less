@@ -1,5 +1,15 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
 a {
   color: black;
+}
+
+#new-task {
+  margin: 10px 0px 10px;
+}
+
+span#calendar-toggle {
+  padding: 0px;
 }
 
 .progress {
@@ -11,6 +21,18 @@ a {
   float: right;
 }
 
-.list-group-item:hover {
+.list-group-item {
+  margin-bottom: 3px;
+  padding: 0;
+  border-style: none;
+}
+
+span.form-control:hover {
   background-color: Lavender;
+}
+
+#footer { // Todo don't overlap with the content
+  position:absolute;
+  bottom:0;
+  height:60px;   /* Height of the footer */
 }

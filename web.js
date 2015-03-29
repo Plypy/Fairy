@@ -7,6 +7,7 @@ var locals = {
 
 keystone.init({
   'name': 'Fairy',
+  'favicon': 'public/favicon.ico',
 
   'less': 'public',
   'static': ['public'],
@@ -22,7 +23,7 @@ keystone.init({
   'user model': 'User',
   'cookie secret': 'secret',
 
-  'locals': _,
+  'locals': locals,
 });
 
 require('./models');

@@ -7,4 +7,4 @@
 node_modules/
 
 # Auto-generated Files
-*.min.css
+site.min.css

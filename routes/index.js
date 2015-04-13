@@ -25,10 +25,13 @@ keystone.set('500', function(err, req, res, next) {
 
 // Load Routes
 var routes = {
-  views: importRoutes('./views')
+  views: importRoutes('./views'),
+  api: importRoutes('./api'),
 };
 
 // Bind Routes
 exports = module.exports = function(app) {
   app.get('/', routes.views.index);
+
+  app.post('/tasks', routes.api.tasks)
 }

@@ -2,14 +2,40 @@ extends ../layouts/base
 include ../mixins/tasks
 
 block content
-  div.input-group#new-task
-    input.form-control(type="text", placeholder="Add new task")
-    span.input-group-btn#calendar-toggle
-      button.btn.btn-default(type="button")
-        span.fa.fa-calendar
-    span.input-group-btn
-      button.btn.btn-default(type="button") Add
+
+  form#new-task(action="tasks", method="post")
+    input.form-control(type="text", placeholder="Add new task", name="content")
+    div.row
+      div.col-xs-6.without-right-padding
+        div.input-group.date
+          input.form-control(type="text", placeholder="mm/dd/yyyy", name="due")
+          span.input-group-addon
+            i.fa.fa-calendar
+      div.col-xs-6.without-left-padding
+        div.btn-group.btn-group-justified
+          div.btn-group
+            button.btn.btn-default(type="submit") Add
+
+
+  //- div.input-group#new-task
+  //-   input.form-control(type="text", placeholder="Add new task")
+  //-   span.input-group-btn#calendar-toggle
+  //-     button.btn.btn-default(type="button")
+  //-       span.fa.fa-calendar
+  //-   span.input-group-btn
+  //-     button.btn.btn-default(type="button") Add
+
 
   div.list-group
     -for (var i in tasks)
       +task-bar(tasks[i])
+
+  script(type='text/javascript').
+    $('.input-group.date').datepicker({
+      orientation: "top auto",
+      todayHighlight: true,
+      autoclose: true,
+    });
+    $('#new-task').ajaxForm(function(data) {
+      alert(JSON.stringify(data));
+    });

@@ -8,22 +8,13 @@ block content
     div.row
       div.col-xs-6.without-right-padding
         div.input-group.date
-          input.form-control(type="text", placeholder="mm/dd/yyyy", name="due")
+          input.form-control(type="text", placeholder="MM/DD/YYYY", name="due")
           span.input-group-addon
             i.fa.fa-calendar
       div.col-xs-6.without-left-padding
         div.btn-group.btn-group-justified
           div.btn-group
             button.btn.btn-default(type="submit") Add
-
-
-  //- div.input-group#new-task
-  //-   input.form-control(type="text", placeholder="Add new task")
-  //-   span.input-group-btn#calendar-toggle
-  //-     button.btn.btn-default(type="button")
-  //-       span.fa.fa-calendar
-  //-   span.input-group-btn
-  //-     button.btn.btn-default(type="button") Add
 
 
   div.list-group
@@ -35,6 +26,7 @@ block content
       orientation: "top auto",
       todayHighlight: true,
       autoclose: true,
+      startDate: "+1d",
     });
     $('#new-task').ajaxForm(function(data) {
       alert(JSON.stringify(data));

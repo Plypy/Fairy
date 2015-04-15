@@ -4,7 +4,7 @@ mixin task-bar(task)
       span.input-group-addon
         input(type="checkbox", aria-label="...")
       span.form-control(aria-label="...")
-        a.text(href='/tasks/' + task.id)= task.name
+        a.text(href='/tasks/' + task.id)= task.title
         span.glyphicon.glyphicon-file(aira-hidden="true", style="float:left")
         span.text(style="float:right")= task.remain + ' day(s) left'
     div.progress.progress-right

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "async": "^0.9.0",
+    "jade": "^1.9.2",
     "keystone": "latest",
     "lodash": "latest",
     "moment": "^2.10.2"

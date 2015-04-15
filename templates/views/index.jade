@@ -4,7 +4,7 @@ include ../mixins/tasks
 block content
 
   form#new-task(action="tasks", method="post")
-    input.form-control(type="text", placeholder="Add new task", name="content")
+    input.form-control(type="text", placeholder="Add new task", name="title")
     div.row
       div.col-xs-6.without-right-padding
         div.input-group.date
@@ -17,7 +17,7 @@ block content
             button.btn.btn-default(type="submit") Add
 
 
-  div.list-group
+  div.list-group#tasks
     -for (var i in tasks)
       +task-bar(tasks[i])
 
@@ -28,6 +28,17 @@ block content
       autoclose: true,
       startDate: "+1d",
     });
-    $('#new-task').ajaxForm(function(data) {
-      alert(JSON.stringify(data));
+
+    $('#new-task').ajaxForm({
+      resetForm: true,
+      success: function(response) {
+        console.log(response);
+        $.get('/tasks', null, function(data) { // refreshing the tasks-list
+          $('#tasks').html(data);
+        });
+      }
     });
+    //- }, function(response) {
+    //-   alert(response);
+    //-   alert('hi');
+    //- });

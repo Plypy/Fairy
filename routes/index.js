@@ -32,6 +32,8 @@ var routes = {
 // Bind Routes
 exports = module.exports = function(app) {
   app.get('/', routes.views.index);
+  app.get('/test', routes.views.test);
 
-  app.post('/tasks', routes.api.tasks)
+  app.get('/tasks', routes.api.tasks.get);
+  app.post('/tasks', routes.api.tasks.add);
 }

@@ -2,13 +2,13 @@ var keystone = require('keystone');
 var async = require('async');
 var moment = require('moment');
 
-var Tasks = keystone.list('Task');
+var Task = keystone.list('Task');
 
 // get time difference in days
 var diffDays = function (st, ed) {
   var st = moment(st);
   var ed = moment(ed);
-  return ed.diff(st, 'days');
+  return Math.ceil(ed.diff(st, 'days', true));
 };
 
 // translate a mongoose object into a task-bar object
@@ -17,9 +17,9 @@ var translate = function (task) {
   var tot = diffDays(task.createdAt, task.due);
   var per = Math.round(100.0*rem/tot);
   return {
-    name: task.title,
+    title: task.title,
     id: task._id,
-    remain: diffDays(Date.now(), task.due),
+    remain: rem,
     percentage: per,
   };
 };
@@ -32,13 +32,19 @@ var lucy = [
 exports = module.exports = function(req, res) {
 
   var view = new keystone.View(req, res);
-  Tasks.model.find(function (err, tasks) {
+  Task.model.find(function (err, tasks) {
+    console.log('original');
+    console.log(tasks);
     async.map(tasks, function (task, callback) {
       return callback(null, translate(task));
     }, function (err, results) {
-      console.log(results);
-      view.render('index', {
-        tasks: results,
+      async.filter(results, function (item, cb) {
+        return cb(item.remain >= 0);
+      }, function (results) {
+        console.log(results);
+        view.render('index', {
+          tasks: results,
+        });
       });
     });
   });

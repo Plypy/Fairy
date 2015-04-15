@@ -11,4 +11,6 @@ Task.add({
   // author
 });
 
+Task.defaultColumns = 'title, due, createdAt';
+
 Task.register();

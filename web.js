@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var _ = require('lodash');
+var conf = require('./conf');
 
 var locals = {
   '_': _,
@@ -16,7 +17,7 @@ keystone.init({
   'view engine': 'jade',
 
   'auto update': true,
-  'mongo': 'mongodb://fairy:tale@localhost/Fairy',
+  'mongo': conf.mongoURI,
 
   'session': true,
   'auth': true,
@@ -24,6 +25,7 @@ keystone.init({
   'cookie secret': 'secret',
 
   'locals': locals,
+  'port': conf.port || 3000,
 });
 
 require('./models');

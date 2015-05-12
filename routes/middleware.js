@@ -29,7 +29,7 @@ exports.initErrorHandlers = function(req, res, next) {
       errorMsg: message,
       title: '500 | Fairy',
     });
-  }
+  };
 
   res.notfound = function(title, message) {
     res.status(404).render('errors/404', {
@@ -37,7 +37,7 @@ exports.initErrorHandlers = function(req, res, next) {
       errorMsg: message,
       title: '404 | Fairy',
     });
-  }
+  };
 
   next();
 
@@ -55,7 +55,9 @@ exports.flashMessages = function(req, res, next) {
     error: req.flash('error')
   };
 
-  res.locals.messages = _.any(flashMessages, function(msgs) { return msgs.length }) ? flashMessages : false;
+  res.locals.messages = _.any(flashMessages, function(msgs) {
+    return msgs.length;
+  }) ? flashMessages : false;
 
   next();
 

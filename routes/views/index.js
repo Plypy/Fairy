@@ -9,14 +9,12 @@ var Task = keystone.list('Task');
 var lucy = [
   {name: 'Fairy', id: '123', remain: 10, percentage: 60},
   {name: 'Lucy', id: '321', remain: 2, percentage: 20},
-]
+];
 
 exports = module.exports = function(req, res) {
 
   var view = new keystone.View(req, res);
   Task.model.find(function (err, tasks) {
-    console.log('original');
-    console.log(tasks);
     async.map(tasks, function (task, callback) {
       return callback(null, utils.translate(task));
     }, function (err, results) {
@@ -29,4 +27,4 @@ exports = module.exports = function(req, res) {
       });
     });
   });
-}
+};

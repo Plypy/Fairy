@@ -20,15 +20,16 @@ html
     block head
   body
 
-    div.container
-      div.jumbotron
-        h1#header.text-center Fairy
+    div.container#main
+      div#main-content
+        div.jumbotron
+          h1#header.text-center Fairy
 
-      block intro
+        block intro
 
-      +flash-messages(messages)
+        +flash-messages(messages)
 
-      block content
+        block content
 
       #footer Built by Ply_py.
 
